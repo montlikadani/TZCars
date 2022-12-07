@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using TZCars.db;
 
 namespace TZCars {
     public partial class NewCarForm : Form {
@@ -27,7 +28,7 @@ namespace TZCars {
         }
 
         private async void addCar_Click(object sender, EventArgs e) {
-            await Program.PerformSqlCommand("insert into `auto` (`rendszam`, `forgalomba`, `tulajdonos`, `utolsomuszaki`, `evjarat`, `marka`) VALUES (@0, @1, @2, @3, @4, @5);",
+            await TZDatabase.PerformSqlCommand("insert into `auto` (`rendszam`, `forgalomba`, `tulajdonos`, `utolsomuszaki`, `evjarat`, `marka`) VALUES (@0, @1, @2, @3, @4, @5);",
                 rendszam.Text, forgalomba.Checked, tulajdonosNeve.Text, utolsoMuszaki.Value, evjarat.Value, markak.Text);
 
             Program.MainForm.RefreshGridItems();

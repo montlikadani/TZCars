@@ -29,6 +29,8 @@
             this.addNewMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.autokGrid = new System.Windows.Forms.DataGridView();
             this.removeAll = new System.Windows.Forms.Button();
+            this.selectedModifyButton = new System.Windows.Forms.Button();
+            this.selectedCarRemoveButton = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.autokGrid)).BeginInit();
             this.SuspendLayout();
@@ -56,7 +58,7 @@
             // closeMenuItem
             // 
             this.closeMenuItem.Name = "closeMenuItem";
-            this.closeMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.closeMenuItem.Size = new System.Drawing.Size(113, 22);
             this.closeMenuItem.Text = "Bezárás";
             this.closeMenuItem.Click += new System.EventHandler(this.closeMenuItem_click);
             // 
@@ -75,35 +77,70 @@
             this.autokGrid.BackgroundColor = System.Drawing.Color.White;
             this.autokGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.autokGrid.Location = new System.Drawing.Point(16, 50);
-            this.autokGrid.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.autokGrid.Margin = new System.Windows.Forms.Padding(4);
             this.autokGrid.MultiSelect = false;
             this.autokGrid.Name = "autokGrid";
             this.autokGrid.ReadOnly = true;
             this.autokGrid.Size = new System.Drawing.Size(1033, 356);
             this.autokGrid.TabIndex = 1;
+            this.autokGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.autokGrid_CellClick);
             // 
             // removeAll
             // 
+            this.removeAll.BackColor = System.Drawing.Color.DarkRed;
+            this.removeAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.removeAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.removeAll.ForeColor = System.Drawing.SystemColors.Control;
             this.removeAll.Location = new System.Drawing.Point(17, 426);
-            this.removeAll.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.removeAll.Margin = new System.Windows.Forms.Padding(4);
             this.removeAll.Name = "removeAll";
             this.removeAll.Size = new System.Drawing.Size(263, 50);
             this.removeAll.TabIndex = 2;
             this.removeAll.Text = "Összes eltávolítása";
-            this.removeAll.UseVisualStyleBackColor = true;
+            this.removeAll.UseVisualStyleBackColor = false;
+            this.removeAll.Click += new System.EventHandler(this.removeAll_Click);
+            // 
+            // selectedModifyButton
+            // 
+            this.selectedModifyButton.Enabled = false;
+            this.selectedModifyButton.Location = new System.Drawing.Point(318, 426);
+            this.selectedModifyButton.Name = "selectedModifyButton";
+            this.selectedModifyButton.Size = new System.Drawing.Size(248, 50);
+            this.selectedModifyButton.TabIndex = 3;
+            this.selectedModifyButton.Text = "Módosítás";
+            this.selectedModifyButton.UseVisualStyleBackColor = true;
+            this.selectedModifyButton.Click += new System.EventHandler(this.selectedModifyButton_Click);
+            // 
+            // selectedCarRemoveButton
+            // 
+            this.selectedCarRemoveButton.BackColor = System.Drawing.Color.Red;
+            this.selectedCarRemoveButton.Enabled = false;
+            this.selectedCarRemoveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.selectedCarRemoveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.selectedCarRemoveButton.ForeColor = System.Drawing.SystemColors.Control;
+            this.selectedCarRemoveButton.Location = new System.Drawing.Point(606, 426);
+            this.selectedCarRemoveButton.Margin = new System.Windows.Forms.Padding(4);
+            this.selectedCarRemoveButton.Name = "selectedCarRemoveButton";
+            this.selectedCarRemoveButton.Size = new System.Drawing.Size(263, 50);
+            this.selectedCarRemoveButton.TabIndex = 4;
+            this.selectedCarRemoveButton.Text = "Kijelölt eltávolítása";
+            this.selectedCarRemoveButton.UseVisualStyleBackColor = false;
+            this.selectedCarRemoveButton.Click += new System.EventHandler(this.selectedCarRemoveButton_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 501);
+            this.Controls.Add(this.selectedCarRemoveButton);
+            this.Controls.Add(this.selectedModifyButton);
             this.Controls.Add(this.removeAll);
             this.Controls.Add(this.autokGrid);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.ShowIcon = false;
@@ -125,6 +162,8 @@
         private System.Windows.Forms.ToolStripMenuItem addNewMenuItem;
         private System.Windows.Forms.DataGridView autokGrid;
         private System.Windows.Forms.Button removeAll;
+        private System.Windows.Forms.Button selectedModifyButton;
+        private System.Windows.Forms.Button selectedCarRemoveButton;
     }
 }
 
